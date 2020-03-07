@@ -3,5 +3,5 @@ import { PhraseTask } from "./classes/Task";
 import Service from "./classes/Service";
 
 window.addEventListener("load", () => {
-    const app = new Test();
+    window.test = new Test();
 });
