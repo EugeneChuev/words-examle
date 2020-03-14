@@ -8,11 +8,12 @@ export default class Test {
         this._ui = ui;
         this._ui.setTest(this);
         this._status = "inactive";
+        // TODO: написать проверку наличия сохраненной игры и отправку сообщений в UI об этом
         this._service.getTasks()
             .then(data => this._createTasks(data))
             .then(() => {
-                this._ui.sendMessage("test:ready");
                 this._status = "ready";
+                this._ui.sendMessage("test:ready");
             });
         this._tasks = [];
         this._current = -1;
@@ -40,6 +41,10 @@ export default class Test {
 
     }
 
+    /**
+     *
+     * @returns {null|*}
+     */
     get task() {
         if (this._current >= 0) {
             return this._tasks[this._current];
@@ -58,6 +63,10 @@ export default class Test {
     start() {
         // запустить таймер, показать первый вопрос и т.д.
         this._current = 0;
-        self._ui.sendMessage("task:changed");
+        this._ui.sendMessage("task:changed");
+    }
+
+    restore() {
+        // TODO: написать код для восстановления игры
     }
 }
