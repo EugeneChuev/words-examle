@@ -17,6 +17,6 @@ export default class Service {
     }
 
     saveTestState(data) {
-        localStorage.setItem(this._storageKey, JSON.stringify(data))
+        localStorage.setItem(this._storageKey, JSON.stringify(data));
     }
 }
